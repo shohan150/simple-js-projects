@@ -18,11 +18,48 @@
          </p>
          <form>
             <div class="range">
-               <label for="amount">Loan Amount</label>
-               <input type="range" name="amount" id="loan-amount" min="5000" max="500000" onchange="fetchLoanAmount()">
+               <label for="amount">Loan Amount ($)</label>
+               <input type="range" name="amount" id="loan-amount" min="5000" max="500000" onchange="fetchLoanAmount()"
+                  value="50000">
             </div>
-            <input type="text" name="amount-number" id="loan-amount-in-numbers">
+            <div class="text">
+               <input type="text" name="amount-number" id="loan-amount-in-numbers"
+                  oninput="textToRange(loanAmount, loanAmountNumber)" value="50000">
+            </div>
          </form>
+
+         <form>
+            <div class="range">
+               <label for="term">Loan Term (year)</label>
+               <input type="range" name="term" id="loan-term" min="2" max="8"
+                  onchange="fetchLoanTerm(loanTermNumber, loanTerm)" value="3">
+            </div>
+            <div class="text">
+               <input type="text" name="term-number" id="loan-term-in-numbers"
+                  oninput="textToRange(loanTerm, loanTermNumber)" value="3">
+            </div>
+         </form>
+
+         <form>
+            <div class="range">
+               <label for="interest">Interest Rate (%)</label>
+               <input type="range" name="interest" id="loan-interest" min="1" max="40"
+                  onchange="fetchLoanTerm(loanInterestNumber, loanInterest)" value="5">
+            </div>
+            <div class="text">
+               <input type="text" name="interest-number" id="loan-interest-in-numbers"
+                  oninput="textToRange(loanInterest, loanInterestNumber)" value="5">
+            </div>
+         </form>
+
+         <div id="loon">
+            <form>
+               <label for="interest">Balloon Payment (%)
+                  <input type="text" name="interest" id="loan-interest-in-numbers"
+                     oninput="textToRange(loanInterest, loanInterestNumber)" value="5">
+               </label>
+            </form>
+         </div>
       </div>
       <div class="amount">
          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis

@@ -45,3 +45,70 @@ p {
 form {
    display: flex;
 }
+
+form .range {
+   width: 50%;
+   margin-right: 20px;
+}
+
+form .range label {
+   font-size: 15px;
+   font-weight: 500;
+}
+
+form .range input[type=range] {
+   appearance: none;
+   background: #dee2e6;
+   height: 6px;
+   border-radius: 3px;
+   cursor: pointer;
+   width: 100%;
+}
+
+form .range input[type=range]::-webkit-slider-thumb {
+   appearance: none;
+   background-color: #001732;
+   height: 12px;
+   width: 12px;
+   border-radius: 6px;
+}
+
+form .text {
+   width: 50%;
+}
+
+form .text input[type=text] {
+   box-sizing: border-box;
+   width: 100%;
+   height: 28px;
+   text-align: right;
+   padding: 4px;
+   border-radius: 4px;
+   border: 1px solid rgba(0, 23, 50, 0.3);
+}
+
+#loon {
+   display: block;
+}
+
+#loon form {
+   margin-right: 0;
+}
+
+#loon input[type=text] {
+   width: 100%;
+   height: 20px;
+   text-align: right;
+   padding: 4px;
+   border: 1px solid rgba(0, 23, 50, 0.3);
+   margin-top: 10px;
+}
+
+#loon form label {
+   display: block;
+   box-sizing: border-box;
+   width: 100%;
+   font-size: 15px;
+   font-weight: 500;
+   margin: 10px 0;
+}
