@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Loan Calculator</title>
    <link rel="stylesheet" href="style.css">
+   <script src="https://kit.fontawesome.com/9488bd43d4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -16,11 +17,11 @@
          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
             recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
          </p>
-         <form>
+         <form class="form-one">
             <div class="range">
                <label for="amount">Loan Amount ($)</label>
                <input type="range" name="amount" id="loan-amount" min="5000" max="500000" onchange="fetchLoanAmount()"
-                  value="50000">
+                  value="50,000">
             </div>
             <div class="text">
                <input type="text" name="amount-number" id="loan-amount-in-numbers"
@@ -28,7 +29,7 @@
             </div>
          </form>
 
-         <form>
+         <form class="form-one">
             <div class="range">
                <label for="term">Loan Term (year)</label>
                <input type="range" name="term" id="loan-term" min="2" max="8"
@@ -40,7 +41,7 @@
             </div>
          </form>
 
-         <form>
+         <form class="form-one">
             <div class="range">
                <label for="interest">Interest Rate (%)</label>
                <input type="range" name="interest" id="loan-interest" min="1" max="40"
@@ -54,18 +55,58 @@
 
          <div id="loon">
             <form>
-               <label for="interest">Balloon Payment (%)
-                  <input type="text" name="interest" id="loan-interest-in-numbers"
-                     oninput="textToRange(loanInterest, loanInterestNumber)" value="5">
+               <label for="balloon">Balloon Payment (%) <span id="tooltip"><i
+                        class="fa-regular fa-circle-question"></i></span>
+                  <input type="text" name="balloon" id="balloon-payment" value="10" oninput="balloonAlert()">
                </label>
             </form>
          </div>
+         <div id="p-date">
+            <form>
+               <label for="p-date">First Payment Date
+               </label>
+               <div class="first-payment">
+                  <select name="month" id="first-payment-month">
+                     <option value="0">January</option>
+                     <option value="1">February</option>
+                     <option value="2">March</option>
+                     <option value="3">April</option>
+                     <option value="4">May</option>
+                     <option value="5">June</option>
+                     <option value="6">July</option>
+                     <option value="7">August</option>
+                     <option value="8">September</option>
+                     <option value="9">October</option>
+                     <option value="10">November</option>
+                     <option value="11">December</option>
+                  </select>
+                  <select name="year" id="first-payment-year">
+                     <option value="2022">2022</option>
+                     <option value="2023">2023</option>
+                     <option value="2024">2024</option>
+                     <option value="2025">2025</option>
+                     <option value="2026">2026</option>
+                     <option value="2027">2027</option>
+                     <option value="2028">2028</option>
+                     <option value="2029">2029</option>
+                     <option value="2030">2030</option>
+                     <option value="2031">2031</option>
+                     <option value="2032">2032</option>
+                  </select>
+            </form>
+         </div>
       </div>
-      <div class="amount">
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
-            recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
-         </p>
+      <div class="buttons">
+         <button id="btn1">Calculate</button>
+         <button id="btn2">Get Quote</button>
       </div>
+   </div>
+
+   <div class="amount">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
+         recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
+      </p>
+   </div>
    </div>
 
 

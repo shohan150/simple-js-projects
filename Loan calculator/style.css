@@ -42,49 +42,51 @@ p {
    width: 50%;
 }
 
-form {
+form.form-one {
    display: flex;
 }
 
-form .range {
+form.form-one .range {
    width: 50%;
    margin-right: 20px;
 }
 
-form .range label {
-   font-size: 15px;
+form.form-one .range label {
+   font-size: 20px;
    font-weight: 500;
 }
 
-form .range input[type=range] {
+form.form-one .range input[type=range] {
    appearance: none;
    background: #dee2e6;
-   height: 6px;
-   border-radius: 3px;
+   height: 8px;
+   border-radius: 4px;
    cursor: pointer;
    width: 100%;
+   margin: 20px 0 40px;
 }
 
-form .range input[type=range]::-webkit-slider-thumb {
+form.form-one .range input[type=range]::-webkit-slider-thumb {
    appearance: none;
    background-color: #001732;
-   height: 12px;
-   width: 12px;
-   border-radius: 6px;
+   height: 16px;
+   width: 16px;
+   border-radius: 8px;
 }
 
-form .text {
+form.form-one .text {
    width: 50%;
 }
 
-form .text input[type=text] {
+form.form-one .text input[type=text] {
    box-sizing: border-box;
    width: 100%;
-   height: 28px;
+   height: 40px;
    text-align: right;
-   padding: 4px;
+   padding: 4px 8px;
    border-radius: 4px;
    border: 1px solid rgba(0, 23, 50, 0.3);
+   font-size: 20px;
 }
 
 #loon {
@@ -97,18 +99,109 @@ form .text input[type=text] {
 
 #loon input[type=text] {
    width: 100%;
-   height: 20px;
+   height: 40px;
    text-align: right;
-   padding: 4px;
+   padding: 4px 10px;
    border: 1px solid rgba(0, 23, 50, 0.3);
    margin-top: 10px;
+   font-size: 20px;
+   border-radius: 4px;
+   box-sizing: border-box;
 }
 
 #loon form label {
    display: block;
    box-sizing: border-box;
    width: 100%;
-   font-size: 15px;
+   font-size: 20px;
+   font-weight: 500;
+   margin: 10px 0 20px;
+}
+
+#tooltip {
+   margin-left: 4px;
+   font-size: 12px;
+}
+
+#tooltip::after {
+   content: "A balloon payment is the lump sum paid at the end of the loan's term";
+   font-size: 10px;
+   background-color: #001732;
+   padding: 2px 4px;
+   border-radius: 2px;
+   color: white;
+   margin-left: 10px;
+   display: none;
+}
+
+#tooltip:hover::after {
+   display: inline;
+}
+
+#p-date label {
+   font-size: 20px;
    font-weight: 500;
    margin: 10px 0;
+   display: block;
+}
+
+.first-payment {
+   display: flex;
+   gap: 20px;
+}
+
+#first-payment-month,
+#first-payment-year {
+   width: 50%;
+}
+
+.first-payment select {
+   width: 100%;
+   height: 40px;
+   padding: 4px 10px;
+   border: 1px solid rgba(0, 23, 50, 0.3);
+   margin-top: 10px;
+   font-size: 20px;
+   border-radius: 4px;
+   box-sizing: border-box;
+}
+
+.buttons {
+   margin: 40px 0 20px;
+   display: flex;
+}
+
+#btn1,
+#btn2 {
+   width: 50%;
+   margin-right: 10px;
+   background-color: #001732;
+   color: white;
+   border-radius: 4px;
+   padding: 15px 20px;
+   box-shadow: 0px 0px 10px -2px rgba(0, 23, 50, 0.3);
+   border: none;
+   font-weight: 700;
+   font-size: 14px;
+   transition: 0.15s linear;
+}
+
+#btn2 {
+   background-color: white;
+   color: #001732;
+   margin-left: 10px;
+   margin-right: 0;
+   box-shadow: none;
+   border: 1px solid rgba(0, 23, 50, 0.3);
+}
+
+#btn1:hover {
+   background-color: white;
+   color: #001732;
+   border: 1px solid rgba(0, 23, 50, 0.3);
+}
+
+#btn2:hover {
+   background-color: #001732;
+   color: white;
 }

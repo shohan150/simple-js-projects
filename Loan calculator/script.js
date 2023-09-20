@@ -4,6 +4,7 @@ let loanTerm = document.getElementById('loan-term');
 let loanTermNumber = document.getElementById('loan-term-in-numbers');
 let loanInterest = document.getElementById('loan-interest');
 let loanInterestNumber = document.getElementById('loan-interest-in-numbers');
+const balloonPayment = document.getElementById('balloon-payment');
 
 function numberWithCommas(x) {
    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -40,3 +41,18 @@ function fetchLoanTerm(x, y) {
    // console.log(loanAmountNumber);
 }
 
+function balloonAlert() {
+   if (balloonPayment.value > 50 || balloonPayment.value < 0) {
+      alert('Ballon rate must be in the range from 0% to 50%');
+   }
+}
+
+const firstPayMonth = document.getElementById('first-payment-month');
+const firstPayYear = document.getElementById('first-payment-year');
+const today = new Date;
+console.log(today);
+
+firstPayMonth.value = today.getMonth();
+firstPayYear.value = today.getFullYear();
+
+console.log(today.getMonth());
