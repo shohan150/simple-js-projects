@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Red+Hat+Display:wght@400;500;700&display=swap');
+
+body {
+   margin: 0;
+   background-color: #f4f4f4;
+   font-family: 'Red Hat Display', sans-serif;
+   color: #001732;
+   width: 100%;
+   text-align: center;
+}
+
+h2 {
+   margin: 80px auto -15px;
+   font-weight: 700;
+   font-size: 44px;
+}
+
+p {
+   font-weight: 400;
+   color: #212935;
+   font-size: 18px;
+}
+
+.container {
+   background-color: #fff;
+   margin: 60px;
+   border-radius: 10px;
+   padding: 30px;
+   display: flex;
+   box-shadow: 0px 0px 25px -10px #333;
+   text-align: left;
+}
+
+.values {
+   padding-right: 30px;
+   border-right: 2px dashed #001732;
+   width: 50%;
+}
+
+.amount {
+   padding-left: 30px;
+   width: 50%;
+}
+
+form {
+   display: flex;
+}
