@@ -216,3 +216,58 @@ input::-webkit-inner-spin-button {
    display: flex;
    justify-content: space-between;
 }
+
+.installments {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 60px;
+   text-align: center;
+   gap: 0;
+}
+
+.installments h3 {
+   font-size: 24px;
+   font-weight: 500;
+}
+
+.installments h4 {
+   font-size: 25px;
+   font-weight: 700;
+   margin-top: 0px;
+}
+
+.installment-buttons {
+   display: flex;
+   /* background-color: rgba(0, 23, 50, 0.3);
+   gap: 1px; */
+}
+
+.installment-buttons button {
+   height: 50px;
+   font-size: 16px;
+   font-weight: 400;
+   color: #001732;
+   background-color: #f2f2f2;
+   border: none;
+   margin: 0;
+   padding: 10px 15px;
+}
+
+#weekly {
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+   border-right: 1px solid rgba(0, 23, 50, 0.3);
+}
+
+#monthly {
+   border-bottom-right-radius: 4px;
+   border-top-right-radius: 4px;
+   border-left: 1px solid rgba(0, 23, 50, 0.3);
+}
+
+.active {
+   background-color: #001732 !important;
+   color: white !important;
+}

@@ -33,11 +33,12 @@
             <div class="range">
                <label for="term">Loan Term (year)</label>
                <input type="range" name="term" id="loan-term" min="2" max="8"
-                  onchange="fetchLoanTerm(loanTermNumber, loanTerm)" value="3">
+                  onchange="fetchLoanTerm(loanTermNumber, loanTerm)" onchange="payOffComplete()" value="3">
             </div>
             <div class="text">
                <input type="number" name="term-number" id="loan-term-in-numbers"
-                  oninput="textToRange(loanTerm, loanTermNumber)" value="3" onfocusout="loanTermAlert()">
+                  oninput="textToRange(loanTerm, loanTermNumber)" value="3"
+                  onfocusout="loanTermAlert(), payOffComplete()" onchange="payOffComplete()">
             </div>
          </form>
 
@@ -66,7 +67,7 @@
             <form>
                <label for="p-date">First Payment Date
                </label>
-               <div class="first-payment">
+               <div class="first-payment" oninput="payOffComplete()">
                   <select name="month" id="first-payment-month">
                      <option value="0">January</option>
                      <option value="1">February</option>
@@ -99,7 +100,7 @@
       </div>
       <div class="buttons">
          <button id="btn1" type="submit"
-            onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert()">Calculate</button>
+            onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert(),instAmount(12)">Calculate</button>
          <button id="btn2">Get Quote</button>
       </div>
    </div>
@@ -117,12 +118,25 @@
          <div class="numbers"> $ <span id="total-interest-amount">7,500.00</span></div>
       </div>
       <div class="amounts">
-         <div class="name">Loan Amount</div>
+         <div class="name">Total Amount</div>
          <div class="numbers"> $ <span id="total-loan-amount">57,500.00</span></div>
       </div>
       <div class="amounts">
          <div class="name">Balloon</div>
          <div class="numbers"> $ <span id="balloon-amount">5,000.00</span></div>
+      </div>
+      <div class="amounts">
+         <div class="name">Pay off Date</div>
+         <div class="numbers"><span id="first-month"></span> | <span id="first-year"></span></div>
+      </div>
+      <div class="installments">
+         <h3>Your estimated payments are</h3>
+         <h4>$ <span id="installment-amount">1,369.53</span></h4>
+         <div class="installment-buttons">
+            <button id="weekly" onclick="instAmount(52);">Weekly</button>
+            <button id="fortnightly" onclick="instAmount(24);">Fortnightly</button>
+            <button id="monthly" class="active" onclick="instAmount(12);">Monthly</button>
+         </div>
       </div>
    </div>
    </div>

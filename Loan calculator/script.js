@@ -93,7 +93,8 @@ const showLoanAmount = document.getElementById('show-loan-amount');
 const totalInterestAmount = document.getElementById('total-interest-amount');
 const totalLoanAmount = document.getElementById('total-loan-amount');
 const balloonAmount = document.getElementById('balloon-amount');
-
+const firstPayoffMonth = document.getElementById('first-month');
+const firstPayoffYear = document.getElementById('first-year');
 
 function showTheValues() {
    showLoanAmount.innerHTML = loanAmountNumber.value;
@@ -118,3 +119,32 @@ function balloonValue() {
    const another = showBalloon * loanAmountOnePercentageAmount;
    balloonAmount.innerHTML = another;
 }
+
+function payOffComplete() {
+   const monthNames = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+   ];
+   // const firstMonth = parseFloat(firstPayMonth.value);
+   firstPayoffMonth.innerHTML = monthNames[firstPayMonth.value];
+   const endYear = parseFloat(firstPayYear.value) + parseFloat(loanTermNumber.value);
+   firstPayoffYear.innerHTML = endYear;
+}
+payOffComplete();
+
+
+const installmentAmount = document.getElementById('installment-amount');
+const weeklyInstallment = document.getElementById('weekly');
+const monthlyInstallment = document.getElementById('monthly');
+const yearlyInstallment = document.getElementById('yearly');
+
+function instAmount(x) {
+   const totalLoanAmtString = totalLoanAmount.innerHTML;
+   const totalLoanAmtNoComma = totalLoanAmtString.replace(/,/g, '');
+   const totalLoanAmtNumber = parseFloat(totalLoanAmtNoComma).toFixed(2);
+   const installmentAmt = parseFloat(totalLoanAmtNumber / x).toFixed(2);
+   const installmentAmtWithComma = numberWithCommas(installmentAmt);
+   console.log(totalLoanAmtNumber);
+   console.log(installmentAmtWithComma);
+   installmentAmount.innerHTML = installmentAmtWithComma;
+}
+instAmount(12);
