@@ -36,11 +36,13 @@ function fetchLoanAmount() {
 }
 function textToRange(x, y) {
    x.value = y.value;
+   showTheValues();
 }
 
 function fetchLoanTerm(x, y) {
    x.value = y.value;
    // console.log(loanAmountNumber);
+   showTheValues();
 }
 
 // balloonPayment.addEventListener('focusout', () => {
@@ -90,6 +92,7 @@ firstPayYear.value = today.getFullYear();
 const showLoanAmount = document.getElementById('show-loan-amount');
 const totalInterestAmount = document.getElementById('total-interest-amount');
 const totalLoanAmount = document.getElementById('total-loan-amount');
+const balloonAmount = document.getElementById('balloon-amount');
 
 
 function showTheValues() {
@@ -98,8 +101,20 @@ function showTheValues() {
    const noCommaLoanAmount = loanAmountNumber.value.replace(/,/g, '');
    const loanAmountOnePercentage = parseFloat(noCommaLoanAmount);
    const loanAmountOnePercentageAmount = loanAmountOnePercentage / 100;
-   const totalInterestNumber = interestCalculator * loanAmountOnePercentageAmount;
+   const totalInterestNumberString = (interestCalculator * loanAmountOnePercentageAmount).toFixed(2);
+   const totalInterestNumber = parseFloat(totalInterestNumberString);
    totalInterest = numberWithCommas(totalInterestNumber)
    totalInterestAmount.innerHTML = totalInterest;
    totalLoanAmount.innerHTML = numberWithCommas(loanAmountOnePercentage + totalInterestNumber);
 };
+
+function balloonValue() {
+   showLoanAmount.innerHTML = loanAmountNumber.value;
+   const interestCalculator = loanInterestNumber.value * loanTermNumber.value;
+   const noCommaLoanAmount = loanAmountNumber.value.replace(/,/g, '');
+   const loanAmountOnePercentage = parseFloat(noCommaLoanAmount);
+   const loanAmountOnePercentageAmount = loanAmountOnePercentage / 100;
+   const showBalloon = parseFloat(balloonPayment.value);
+   const another = showBalloon * loanAmountOnePercentageAmount;
+   balloonAmount.innerHTML = another;
+}

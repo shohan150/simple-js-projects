@@ -57,7 +57,8 @@
             <form>
                <label for="balloon">Balloon Payment (%) <span id="tooltip"><i
                         class="fa-regular fa-circle-question"></i></span>
-                  <input type="number" name="balloon" id="balloon-payment" value="10" onfocusout="balloonAlert()">
+                  <input type="number" name="balloon" id="balloon-payment" value="10"
+                     onfocusout="balloonAlert(), balloonValue()">
                </label>
             </form>
          </div>
@@ -118,6 +119,10 @@
       <div class="amounts">
          <div class="name">Loan Amount</div>
          <div class="numbers"> $ <span id="total-loan-amount">57,500.00</span></div>
+      </div>
+      <div class="amounts">
+         <div class="name">Balloon</div>
+         <div class="numbers"> $ <span id="balloon-amount">5,000.00</span></div>
       </div>
    </div>
    </div>
