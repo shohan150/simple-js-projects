@@ -78,7 +78,8 @@ form.form-one .text {
    width: 50%;
 }
 
-form.form-one .text input[type=text] {
+form.form-one .text input[type=text],
+form.form-one .text input[type=number] {
    box-sizing: border-box;
    width: 100%;
    height: 40px;
@@ -97,7 +98,7 @@ form.form-one .text input[type=text] {
    margin-right: 0;
 }
 
-#loon input[type=text] {
+#loon input[type=number] {
    width: 100%;
    height: 40px;
    text-align: right;
@@ -107,6 +108,11 @@ form.form-one .text input[type=text] {
    font-size: 20px;
    border-radius: 4px;
    box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   display: none;
 }
 
 #loon form label {
@@ -204,4 +210,9 @@ form.form-one .text input[type=text] {
 #btn2:hover {
    background-color: #001732;
    color: white;
+}
+
+.amounts {
+   display: flex;
+   justify-content: space-between;
 }

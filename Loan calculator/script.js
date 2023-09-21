@@ -1,9 +1,9 @@
-let loanAmount = document.getElementById('loan-amount');
-let loanAmountNumber = document.getElementById('loan-amount-in-numbers');
-let loanTerm = document.getElementById('loan-term');
-let loanTermNumber = document.getElementById('loan-term-in-numbers');
-let loanInterest = document.getElementById('loan-interest');
-let loanInterestNumber = document.getElementById('loan-interest-in-numbers');
+const loanAmount = document.getElementById('loan-amount');
+const loanAmountNumber = document.getElementById('loan-amount-in-numbers');
+const loanTerm = document.getElementById('loan-term');
+const loanTermNumber = document.getElementById('loan-term-in-numbers');
+const loanInterest = document.getElementById('loan-interest');
+const loanInterestNumber = document.getElementById('loan-interest-in-numbers');
 const balloonPayment = document.getElementById('balloon-payment');
 
 function numberWithCommas(x) {
@@ -25,12 +25,14 @@ function numberWithCommas(x) {
    // (?!\d): This is a negative lookahead assertion. It's used to ensure that after the groups of three digits, there should not be another digit immediately following. In other words, it checks that we're not in the middle of a larger number.
 }
 
+
 function fetchLoanAmount() {
    const rawLoanAmount = loanAmount.value;
    const formattedLoanAmount = numberWithCommas(rawLoanAmount);
 
    loanAmountNumber.value = formattedLoanAmount;
    // console.log(loanAmountNumber);
+   showTheValues();
 }
 function textToRange(x, y) {
    x.value = y.value;
@@ -41,18 +43,63 @@ function fetchLoanTerm(x, y) {
    // console.log(loanAmountNumber);
 }
 
+// balloonPayment.addEventListener('focusout', () => {
+//    balloonAlert();
+// });
+
+function loanAmountAlert() {
+   if (loanAmountNumber.value > 500000 || loanAmountNumber.value < 5000) {
+      alert('Loan amount must be in the range from 5,000 to 500,000');
+      return false;
+   }
+   return true;
+}
+
+function loanTermAlert() {
+   if (loanTermNumber.value > 8 || loanTermNumber.value < 2) {
+      alert('Loan term must be in the range from 2 to 8 year');
+      return false;
+   }
+   return true;
+}
+function InterestRateAlert() {
+   if (loanInterestNumber.value > 40 || loanInterestNumber.value < 2) {
+      alert('Interest rate must be in the range from 1% to 40%');
+      return false;
+   }
+   return true;
+}
 function balloonAlert() {
    if (balloonPayment.value > 50 || balloonPayment.value < 0) {
       alert('Ballon rate must be in the range from 0% to 50%');
+      return false;
    }
+   return true;
 }
+
+
 
 const firstPayMonth = document.getElementById('first-payment-month');
 const firstPayYear = document.getElementById('first-payment-year');
 const today = new Date;
-console.log(today);
 
 firstPayMonth.value = today.getMonth();
 firstPayYear.value = today.getFullYear();
 
-console.log(today.getMonth());
+
+const showLoanAmount = document.getElementById('show-loan-amount');
+const totalInterestAmount = document.getElementById('total-interest-amount');
+const totalLoanAmount = document.getElementById('total-loan-amount');
+
+
+function showTheValues() {
+   showLoanAmount.innerHTML = loanAmountNumber.value;
+   const interestCalculator = loanInterestNumber.value * loanTermNumber.value;
+   const noCommaLoanAmount = loanAmountNumber.value.replace(/,/g, '');
+   const loanAmountOnePercentage = parseFloat(noCommaLoanAmount);
+   const loanAmountOnePercentageAmount = loanAmountOnePercentage / 100;
+   const totalInterestNumber = interestCalculator * loanAmountOnePercentageAmount;
+   totalInterest = numberWithCommas(totalInterestNumber)
+   totalInterestAmount.innerHTML = totalInterest;
+   totalLoanAmount.innerHTML = numberWithCommas(loanAmountOnePercentage + totalInterestNumber);
+};

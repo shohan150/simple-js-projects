@@ -21,11 +21,11 @@
             <div class="range">
                <label for="amount">Loan Amount ($)</label>
                <input type="range" name="amount" id="loan-amount" min="5000" max="500000" onchange="fetchLoanAmount()"
-                  value="50,000">
+                  value="50000">
             </div>
             <div class="text">
                <input type="text" name="amount-number" id="loan-amount-in-numbers"
-                  oninput="textToRange(loanAmount, loanAmountNumber)" value="50000">
+                  oninput="textToRange(loanAmount, loanAmountNumber)" value="50,000" onfocusout="loanAmountAlert()">
             </div>
          </form>
 
@@ -36,8 +36,8 @@
                   onchange="fetchLoanTerm(loanTermNumber, loanTerm)" value="3">
             </div>
             <div class="text">
-               <input type="text" name="term-number" id="loan-term-in-numbers"
-                  oninput="textToRange(loanTerm, loanTermNumber)" value="3">
+               <input type="number" name="term-number" id="loan-term-in-numbers"
+                  oninput="textToRange(loanTerm, loanTermNumber)" value="3" onfocusout="loanTermAlert()">
             </div>
          </form>
 
@@ -48,8 +48,8 @@
                   onchange="fetchLoanTerm(loanInterestNumber, loanInterest)" value="5">
             </div>
             <div class="text">
-               <input type="text" name="interest-number" id="loan-interest-in-numbers"
-                  oninput="textToRange(loanInterest, loanInterestNumber)" value="5">
+               <input type="number" name="interest-number" id="loan-interest-in-numbers"
+                  oninput="textToRange(loanInterest, loanInterestNumber)" value="5" onfocusout="InterestRateAlert()">
             </div>
          </form>
 
@@ -57,7 +57,7 @@
             <form>
                <label for="balloon">Balloon Payment (%) <span id="tooltip"><i
                         class="fa-regular fa-circle-question"></i></span>
-                  <input type="text" name="balloon" id="balloon-payment" value="10" oninput="balloonAlert()">
+                  <input type="number" name="balloon" id="balloon-payment" value="10" onfocusout="balloonAlert()">
                </label>
             </form>
          </div>
@@ -97,7 +97,8 @@
          </div>
       </div>
       <div class="buttons">
-         <button id="btn1">Calculate</button>
+         <button id="btn1" type="submit"
+            onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert()">Calculate</button>
          <button id="btn2">Get Quote</button>
       </div>
    </div>
@@ -106,6 +107,18 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
          recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
       </p>
+      <div class="amounts">
+         <div class="name">Loan Amount</div>
+         <div class="numbers"> $ <span id="show-loan-amount">50,000</span></div>
+      </div>
+      <div class="amounts">
+         <div class="name">Total Interest</div>
+         <div class="numbers"> $ <span id="total-interest-amount">7,500.00</span></div>
+      </div>
+      <div class="amounts">
+         <div class="name">Loan Amount</div>
+         <div class="numbers"> $ <span id="total-loan-amount">57,500.00</span></div>
+      </div>
    </div>
    </div>
 
