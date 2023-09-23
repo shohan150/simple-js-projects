@@ -21,13 +21,23 @@ p {
    font-size: 18px;
 }
 
-.container {
+.upper-container {
    background-color: #fff;
    margin: 60px;
    border-radius: 10px;
    padding: 30px;
-   display: flex;
    box-shadow: 0px 0px 25px -10px #333;
+}
+
+.upper-container p {
+   font-size: 14px;
+   line-height: 21px;
+   text-align: left;
+}
+
+.container {
+   margin: 20px 0 35px;
+   display: flex;
    text-align: left;
 }
 
@@ -215,6 +225,7 @@ input::-webkit-inner-spin-button {
 .amounts {
    display: flex;
    justify-content: space-between;
+   text-align: center;
 }
 
 .installments {
@@ -222,9 +233,10 @@ input::-webkit-inner-spin-button {
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   margin-top: 60px;
+   margin-top: 40px;
    text-align: center;
    gap: 0;
+   margin-bottom: 20px;
 }
 
 .installments h3 {
@@ -246,7 +258,7 @@ input::-webkit-inner-spin-button {
 }
 
 .installment-buttons button {
-   height: 50px;
+   height: 40px;
    font-size: 16px;
    font-weight: 400;
    color: #001732;
@@ -271,4 +283,67 @@ input::-webkit-inner-spin-button {
 .active {
    background-color: #001732 !important;
    color: white !important;
+}
+
+.amounts {
+   width: 320px;
+   margin: auto;
+   padding: 6px 0;
+}
+
+.total {
+   border-top: 1px solid rgba(0, 23, 50, 0.3);
+   border-bottom: 1px solid rgba(0, 23, 50, 0.3);
+   padding: 8px 0;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   font-weight: 700;
+}
+
+.name {
+   display: flex;
+   text-align: center;
+}
+
+#amt,
+#int {
+   width: 20px;
+   height: 22px;
+   background: linear-gradient(90deg, #001732de, #00173277);
+   margin-right: 10px;
+   display: inline-block;
+   margin-bottom: 0;
+   border-radius: 4px;
+}
+
+#int {
+   background: #9ca1ac;
+}
+
+.draw {
+   display: flex;
+   margin-top: 40px;
+}
+
+.draw-buttons {
+   width: 30%;
+}
+
+.draw-buttons button {
+   font-size: 16px;
+   color: #001732;
+   padding: 10px 12px;
+   background-color: #f4f4f4;
+   border: none;
+   width: 120px;
+   display: block;
+}
+
+.drawing {
+   width: 70%;
+}
+
+.drawing canvas {
+   width: 260px !important;
+   height: 260px !important;
 }

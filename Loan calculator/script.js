@@ -135,7 +135,7 @@ payOffComplete();
 const installmentAmount = document.getElementById('installment-amount');
 const weeklyInstallment = document.getElementById('weekly');
 const monthlyInstallment = document.getElementById('monthly');
-const yearlyInstallment = document.getElementById('yearly');
+const fortnightlyInstallment = document.getElementById('fortnightly');
 
 function instAmount(x) {
    const totalLoanAmtString = totalLoanAmount.innerHTML;
@@ -148,3 +148,31 @@ function instAmount(x) {
    installmentAmount.innerHTML = installmentAmtWithComma;
 }
 instAmount(12);
+
+function selectWeek() {
+   weeklyInstallment.classList.add('active');
+   monthlyInstallment.classList.remove('active');
+   fortnightlyInstallment.classList.remove('active');
+}
+function selectFortnight() {
+   fortnightlyInstallment.classList.add('active');
+   monthlyInstallment.classList.remove('active');
+   weeklyInstallment.classList.remove('active');
+}
+function selectMonth() {
+   monthlyInstallment.classList.add('active');
+   weeklyInstallment.classList.remove('active');
+   fortnightlyInstallment.classList.remove('active');
+}
+
+function maintainDuration() {
+   if (weeklyInstallment.classList.contains('active')) {
+      instAmount(52);
+   }
+   if (fortnightlyInstallment.classList.contains('active')) {
+      instAmount(24);
+   }
+   if (monthlyInstallment.classList.contains('active')) {
+      instAmount(12);
+   }
+}

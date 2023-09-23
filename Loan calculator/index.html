@@ -12,138 +12,163 @@
 <body>
    <h2>Loan Calculator</h2>
    <p>Let's estimate your repayment options</p>
-   <div class="container">
-      <div class="values">
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
-            recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
-         </p>
-         <form class="form-one">
-            <div class="range">
-               <label for="amount">Loan Amount ($)</label>
-               <input type="range" name="amount" id="loan-amount" min="5000" max="500000" onchange="fetchLoanAmount()"
-                  value="50000">
-            </div>
-            <div class="text">
-               <input type="text" name="amount-number" id="loan-amount-in-numbers"
-                  oninput="textToRange(loanAmount, loanAmountNumber)" value="50,000" onfocusout="loanAmountAlert()">
-            </div>
-         </form>
-
-         <form class="form-one">
-            <div class="range">
-               <label for="term">Loan Term (year)</label>
-               <input type="range" name="term" id="loan-term" min="2" max="8"
-                  onchange="fetchLoanTerm(loanTermNumber, loanTerm)" onchange="payOffComplete()" value="3">
-            </div>
-            <div class="text">
-               <input type="number" name="term-number" id="loan-term-in-numbers"
-                  oninput="textToRange(loanTerm, loanTermNumber)" value="3"
-                  onfocusout="loanTermAlert(), payOffComplete()" onchange="payOffComplete()">
-            </div>
-         </form>
-
-         <form class="form-one">
-            <div class="range">
-               <label for="interest">Interest Rate (%)</label>
-               <input type="range" name="interest" id="loan-interest" min="1" max="40"
-                  onchange="fetchLoanTerm(loanInterestNumber, loanInterest)" value="5">
-            </div>
-            <div class="text">
-               <input type="number" name="interest-number" id="loan-interest-in-numbers"
-                  oninput="textToRange(loanInterest, loanInterestNumber)" value="5" onfocusout="InterestRateAlert()">
-            </div>
-         </form>
-
-         <div id="loon">
-            <form>
-               <label for="balloon">Balloon Payment (%) <span id="tooltip"><i
-                        class="fa-regular fa-circle-question"></i></span>
-                  <input type="number" name="balloon" id="balloon-payment" value="10"
-                     onfocusout="balloonAlert(), balloonValue()">
-               </label>
+   <div class="upper-container">
+      <div class="container">
+         <div class="values">
+            <form class="form-one">
+               <div class="range">
+                  <label for="amount">Loan Amount ($)</label>
+                  <input type="range" name="amount" id="loan-amount" min="5000" max="500000"
+                     onchange="fetchLoanAmount()" value="50000">
+               </div>
+               <div class="text">
+                  <input type="text" name="amount-number" id="loan-amount-in-numbers"
+                     oninput="textToRange(loanAmount, loanAmountNumber)" value="50,000" onfocusout="loanAmountAlert()">
+               </div>
             </form>
-         </div>
-         <div id="p-date">
-            <form>
-               <label for="p-date">First Payment Date
-               </label>
-               <div class="first-payment" oninput="payOffComplete()">
-                  <select name="month" id="first-payment-month">
-                     <option value="0">January</option>
-                     <option value="1">February</option>
-                     <option value="2">March</option>
-                     <option value="3">April</option>
-                     <option value="4">May</option>
-                     <option value="5">June</option>
-                     <option value="6">July</option>
-                     <option value="7">August</option>
-                     <option value="8">September</option>
-                     <option value="9">October</option>
-                     <option value="10">November</option>
-                     <option value="11">December</option>
-                  </select>
-                  <select name="year" id="first-payment-year">
-                     <option value="2022">2022</option>
-                     <option value="2023">2023</option>
-                     <option value="2024">2024</option>
-                     <option value="2025">2025</option>
-                     <option value="2026">2026</option>
-                     <option value="2027">2027</option>
-                     <option value="2028">2028</option>
-                     <option value="2029">2029</option>
-                     <option value="2030">2030</option>
-                     <option value="2031">2031</option>
-                     <option value="2032">2032</option>
-                  </select>
+
+            <form class="form-one">
+               <div class="range">
+                  <label for="term">Loan Term (year)</label>
+                  <input type="range" name="term" id="loan-term" min="2" max="8"
+                     onchange="fetchLoanTerm(loanTermNumber, loanTerm)" onchange="payOffComplete()" value="3">
+               </div>
+               <div class="text">
+                  <input type="number" name="term-number" id="loan-term-in-numbers"
+                     oninput="textToRange(loanTerm, loanTermNumber)" value="3"
+                     onfocusout="loanTermAlert(), payOffComplete()" onchange="payOffComplete()">
+               </div>
             </form>
+
+            <form class="form-one">
+               <div class="range">
+                  <label for="interest">Interest Rate (%)</label>
+                  <input type="range" name="interest" id="loan-interest" min="1" max="40"
+                     onchange="fetchLoanTerm(loanInterestNumber, loanInterest)" value="5">
+               </div>
+               <div class="text">
+                  <input type="number" name="interest-number" id="loan-interest-in-numbers"
+                     oninput="textToRange(loanInterest, loanInterestNumber)" value="5" onfocusout="InterestRateAlert()">
+               </div>
+            </form>
+
+            <div id="loon">
+               <form>
+                  <label for="balloon">Balloon Payment (%) <span id="tooltip"><i
+                           class="fa-regular fa-circle-question"></i></span>
+                     <input type="number" name="balloon" id="balloon-payment" value="10"
+                        onfocusout="balloonAlert(), balloonValue()">
+                  </label>
+               </form>
+            </div>
+            <div id="p-date">
+               <form>
+                  <label for="p-date">First Payment Date
+                  </label>
+                  <div class="first-payment" oninput="payOffComplete()">
+                     <select name="month" id="first-payment-month">
+                        <option value="0">January</option>
+                        <option value="1">February</option>
+                        <option value="2">March</option>
+                        <option value="3">April</option>
+                        <option value="4">May</option>
+                        <option value="5">June</option>
+                        <option value="6">July</option>
+                        <option value="7">August</option>
+                        <option value="8">September</option>
+                        <option value="9">October</option>
+                        <option value="10">November</option>
+                        <option value="11">December</option>
+                     </select>
+                     <select name="year" id="first-payment-year">
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                     </select>
+               </form>
+            </div>
+         </div>
+         <div class="buttons">
+            <button id="btn1" type="submit"
+               onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert(), maintainDuration()">Calculate</button>
+            <button id="btn2">Get Quote</button>
          </div>
       </div>
-      <div class="buttons">
-         <button id="btn1" type="submit"
-            onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert(),instAmount(12)">Calculate</button>
-         <button id="btn2">Get Quote</button>
-      </div>
-   </div>
 
-   <div class="amount">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odio expedita, distinctio autem ex omnis
-         recusandae repellendus a impedit iure praesentium nulla debitis, commodi soluta quam optio, natus nam earum.
-      </p>
-      <div class="amounts">
-         <div class="name">Loan Amount</div>
-         <div class="numbers"> $ <span id="show-loan-amount">50,000</span></div>
-      </div>
-      <div class="amounts">
-         <div class="name">Total Interest</div>
-         <div class="numbers"> $ <span id="total-interest-amount">7,500.00</span></div>
-      </div>
-      <div class="amounts">
-         <div class="name">Total Amount</div>
-         <div class="numbers"> $ <span id="total-loan-amount">57,500.00</span></div>
-      </div>
-      <div class="amounts">
-         <div class="name">Balloon</div>
-         <div class="numbers"> $ <span id="balloon-amount">5,000.00</span></div>
-      </div>
-      <div class="amounts">
-         <div class="name">Pay off Date</div>
-         <div class="numbers"><span id="first-month"></span> | <span id="first-year"></span></div>
-      </div>
-      <div class="installments">
-         <h3>Your estimated payments are</h3>
-         <h4>$ <span id="installment-amount">1,369.53</span></h4>
-         <div class="installment-buttons">
-            <button id="weekly" onclick="instAmount(52);">Weekly</button>
-            <button id="fortnightly" onclick="instAmount(24);">Fortnightly</button>
-            <button id="monthly" class="active" onclick="instAmount(12);">Monthly</button>
+      <div class="amount">
+         <div class="installments">
+            <h3>Your estimated payments are</h3>
+            <h4>$ <span id="installment-amount">1,369.53</span></h4>
+            <div class="installment-buttons">
+               <button id="weekly" onclick="instAmount(52), selectWeek()">Weekly</button>
+               <button id="fortnightly" onclick="instAmount(24), selectFortnight()">Fortnightly</button>
+               <button id="monthly" class="active" onclick="instAmount(12), selectMonth()">Monthly</button>
+            </div>
          </div>
+         <div class="amounts">
+            <div class="name">
+               <div id="amt"></div> Loan Amount
+            </div>
+            <div class="numbers"> $ <span id="show-loan-amount">50,000</span></div>
+         </div>
+         <div class="amounts">
+            <div class="name">
+               <div id="int"></div> Total Interest
+            </div>
+            <div class="numbers"> $ <span id="total-interest-amount">7,500.00</span></div>
+         </div>
+         <div class="amounts total">
+            <div class="name">Total Amount</div>
+            <div class="numbers"> $ <span id="total-loan-amount">57,500.00</span></div>
+         </div>
+         <div class="amounts">
+            <div class="name">Balloon</div>
+            <div class="numbers"> $ <span id="balloon-amount">5,000.00</span></div>
+         </div>
+         <div class="amounts">
+            <div class="name">Pay off Date</div>
+            <div class="numbers"><span id="first-month"></span> | <span id="first-year"></span></div>
+         </div>
+
+         <div class="draw">
+            <div class="draw-buttons">
+               <button id="graph">Graph View</button>
+               <button id="chart">Chart View</button>
+            </div>
+            <div class="drawing">
+               <canvas id="myChart"></canvas>
+               <canvas id="myGraph"></canvas>
+            </div>
+         </div>
+
+
+
+
+
       </div>
+
    </div>
+   <p>The figures shown in the calculators do not constitute financial advice. Lender policy, term and conditions,
+      fees
+      and charges apply. The results should not be taken as a substitute for professional or finance advice. All
+      reasonable care has been taken in preparing and designing the calculators and tools; however, oxcel finance
+      provides no warranties and makes no representation that the information provided by the calculators and tools
+      is
+      appropriate for your particular circumstances or indicates you should follow a particular course of action</p>
+
    </div>
 
-
-
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script src="script.js"></script>
+   <script src="loan-chart.js"></script>
 </body>
 
 </html>
