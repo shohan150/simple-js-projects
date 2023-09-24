@@ -1,21 +1,16 @@
-const chartData = {
-   labels: ['Loan Amount', 'Total Interst'],
-   data: [20, 15],
-};
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
    type: 'doughnut',
    data: {
-      labels: chartData.labels,
+      labels: ['Loan Amount', 'Total Interest'],
       datasets: [
          {
-            data: chartData.data,
+            data: [50000, 7500],
             backgroundColor: [
                'rgb(0, 23, 50)',
                'rgb(156,161,172)'
             ],
-            hoverOffset: 4,
          },
       ],
    },
@@ -54,3 +49,21 @@ var myGraph = new Chart(ctxx, {
       }
    },
 });
+
+function updateChart() {
+
+   const chartLoanComma = showLoanAmount.innerHTML;
+   const chartLoan = chartLoanComma.replace(/,/g, '');;
+   const chartInterestComma = totalInterestAmount.innerHTML;
+   const chartInterest = chartInterestComma.replace(/,/g, '');
+   console.log(chartLoan);
+   console.log(chartInterest);
+   // const chartData = {
+   //    labels: ['Loan Amount', 'Total Interst'],
+   //    data: [chartLoan, chartInterest],
+   // };
+   myChart.data.datasets[0].data = [chartLoan, chartInterest];
+   myChart.update();
+
+};
+// graphChart();

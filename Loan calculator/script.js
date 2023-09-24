@@ -143,8 +143,8 @@ function instAmount(x) {
    const totalLoanAmtNumber = parseFloat(totalLoanAmtNoComma).toFixed(2);
    const installmentAmt = parseFloat(totalLoanAmtNumber / x).toFixed(2);
    const installmentAmtWithComma = numberWithCommas(installmentAmt);
-   console.log(totalLoanAmtNumber);
-   console.log(installmentAmtWithComma);
+   // console.log(totalLoanAmtNumber);
+   // console.log(installmentAmtWithComma);
    installmentAmount.innerHTML = installmentAmtWithComma;
 }
 instAmount(12);

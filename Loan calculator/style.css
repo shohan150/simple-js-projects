@@ -322,7 +322,6 @@ input::-webkit-inner-spin-button {
 
 .draw {
    display: flex;
-   margin-top: 40px;
 }
 
 .draw-buttons {
@@ -344,6 +343,11 @@ input::-webkit-inner-spin-button {
 }
 
 .drawing canvas {
-   width: 260px !important;
-   height: 260px !important;
+   /* width: 260px !important;
+   height: 260px !important; */
+}
+
+#test .btn-act {
+   background-color: #001732;
+   color: white;
 }

@@ -7,6 +7,7 @@
    <title>Loan Calculator</title>
    <link rel="stylesheet" href="style.css">
    <script src="https://kit.fontawesome.com/9488bd43d4.js" crossorigin="anonymous"></script>
+   <script src="Chart.js"></script>
 </head>
 
 <body>
@@ -98,12 +99,27 @@
          </div>
          <div class="buttons">
             <button id="btn1" type="submit"
-               onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert(), maintainDuration()">Calculate</button>
+               onclick="loanAmountAlert(), loanTermAlert(),InterestRateAlert(), balloonAlert(), maintainDuration(), updateChart()">Calculate</button>
             <button id="btn2">Get Quote</button>
          </div>
       </div>
 
       <div class="amount">
+         <div class="draw">
+            <div class="draw-buttons" id="test">
+               <button id="graph" class="btn-act" onclick="showChart()">Graph View</button>
+               <button id="chart" onclick="showGraph()">Chart View</button>
+            </div>
+            <div class="drawing">
+               <canvas id="myChart"></canvas>
+               <canvas id="myGraph"></canvas>
+            </div>
+         </div>
+
+
+
+
+
          <div class="installments">
             <h3>Your estimated payments are</h3>
             <h4>$ <span id="installment-amount">1,369.53</span></h4>
@@ -138,20 +154,6 @@
             <div class="numbers"><span id="first-month"></span> | <span id="first-year"></span></div>
          </div>
 
-         <div class="draw">
-            <div class="draw-buttons">
-               <button id="graph">Graph View</button>
-               <button id="chart">Chart View</button>
-            </div>
-            <div class="drawing">
-               <canvas id="myChart"></canvas>
-               <canvas id="myGraph"></canvas>
-            </div>
-         </div>
-
-
-
-
 
       </div>
 
@@ -166,9 +168,10 @@
 
    </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
    <script src="script.js"></script>
-   <script src="loan-chart.js"></script>
+   <!-- <script src="loan-chart.js"></script> -->
+   <script src="raw-chart.js"></script>
 </body>
 
 </html>
