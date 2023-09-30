@@ -3,40 +3,21 @@ const chartView = document.getElementById('chart');
 const graph = document.getElementById('myGraph');
 const chart = document.getElementById('myChart');
 
-graph.style.display = 'none';
+chart.style.display = 'none';
 
 function showChart() {
    graphView.classList.add("btn-act");
    chartView.classList.remove("btn-act");
-   graph.style.display = 'none';
-   chart.style.display = 'block';
+   graph.style.display = 'block';
+   chart.style.display = 'none';
 
 }
 function showGraph() {
    chartView.classList.add("btn-act");
    graphView.classList.remove("btn-act");
-   chart.style.display = 'none';
-   graph.style.display = 'block';
+   chart.style.display = 'block';
+   graph.style.display = 'none';
 }
-
-const lab = [];
-const data = [];
-
-let y = 1;
-while (y < (parseFloat(loanTermNumber.value))) {
-   lab.push();
-
-
-
-   // data.push(parseFloat(totalLoanAmount.innerHTML.replace(/,/g, '')));
-   // y++;
-}
-
-// data.push(parseFloat(totalLoanAmount.innerHTML.replace(/,/g, '')));
-// console.log(typeof (parseFloat(loanTermNumber.value)));
-console.log(lab);
-console.log(parseFloat(loanTermNumber.value));
-
 
 
 function updateChart() {
@@ -59,21 +40,62 @@ function updateChart() {
 
    var myChart = new Chart(document.getElementById('myChart').getContext("2d")).Doughnut(doughnutData);
 
+   //=============================================
+
+
+
+
+   const lab = [];
+   const data = [];
+   const gLoan = parseFloat(showLoanAmount.innerHTML.replace(/,/g, ''));
+
+
+
+   // console.log(gLoan);
+   // console.log(typeof (gLoan));
+
+   function showGraphValues(x) {
+      const gInterest = parseFloat((loanInterestNumber.value * x) / 100).toFixed(2);
+      const totalAmt = gLoan + gInterest * gLoan;
+      return totalAmt;
+   };
+
+   var y = 0;
+   var loopNumber = parseFloat(loanTermNumber.value);
+   while (y < loopNumber) {
+      lab.push(loopNumber);
+      data.push(showGraphValues(loopNumber));
+      loopNumber--;
+   }
+
+   // console.log(lab);
+   // console.log(data);
+
+
+
+
+
+   //==============================================
 
    var lineData =
    {
       labels: lab,
       datasets: [
          {
-            fillColor: '#f2f2f2',
+            fillColor: '#fff0',
             strokeColor: '#001732',
             pointColor: '#001732',
-            data: data
-         }
-      ]
+            data: data,
+            tension: 0.5,
+         },
+
+      ],
+   };
+   var options = {
+      bezierCurve: false
    };
 
-   var myGraph = new Chart(document.getElementById('myGraph').getContext("2d")).Line(lineData);
+   var myGraph = new Chart(document.getElementById('myGraph').getContext("2d")).Line(lineData, options);
 
 }
 updateChart();
